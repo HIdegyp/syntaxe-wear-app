@@ -1,0 +1,52 @@
+import Logo from '../../assets/images/logo.png';
+import IconUser from '../../assets/images/icon-user.svg';
+import IconCart from '../../assets/images/icon-cart.png';
+import IconAbout from '../../assets/images/icon-about.png';
+
+export const Header = () => {
+    return (
+        <div className="relative">
+            <header className="fixed bg-amber-400 top-0 left-0 right-0 z-10 mx-10 ">
+
+                <div className="bg-white max-w-[1320px] mx-auto flex justify-between items-center py-5 px-7 rounded-2xl mt-5" >
+                    <img src={Logo} alt="Logo" 
+                    className="w-32 md:w-36"/>
+          
+                <nav > 
+                    <ul className="flex gap-4 md:gap-10">
+                        <li className="hidden md:block">
+                            <a href="#">Masculino</a>
+                            </li>
+                        <li className="hidden md:block">
+                            <a href="#">Feminino</a>
+                            </li>
+                        <li className="hidden md:block">
+                            <a href="#">Outlet</a>
+                            </li>
+                    </ul>
+                </nav>
+                <nav >
+                    <ul className="flex gap-4 md:gap-10">
+                        <li className="hidden md:block">
+                            <a href="#">Nossas Lojas</a>
+                            </li>
+                        <li className="hidden md:block">
+                            <a href="#">Sobre Nós</a>
+                            </li>
+                        <li>
+                            <a href="#"><img src={IconUser} alt="icone do usuário" /></a>
+                            </li>
+                        <li>
+                            <a href="#"><img src={IconAbout} alt="icone de sobre" /></a>
+                            </li>
+                        <li>
+                            <a href="#"><img src={IconCart} alt="icone do carrinho" /></a>
+                            </li>
+                    </ul>
+                </nav>
+                      </div>
+            </header>
+        </div>
+        )
+
+}

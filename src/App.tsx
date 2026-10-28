@@ -10,6 +10,7 @@ function App() {
    <Header />
    <main className="py-10">
     <Hero />
+    
     </main>
     </>
   )

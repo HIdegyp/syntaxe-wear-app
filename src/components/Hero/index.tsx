@@ -1,5 +1,5 @@
 import Banner from "@/assets/images/banner.jpg";
-import { Button } from "@/components/Header/Button";
+import { Button } from "@/components/Button";
 export const Hero = () => {
     return (
         <div className="container">

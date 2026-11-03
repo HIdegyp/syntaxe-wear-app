@@ -1,5 +1,6 @@
+import { Categories } from "./components/Categories";
 import { Header } from "./components/Header";
-import { Hero } from "./components/Header/Hero";
+import { Hero } from "./components/Hero";
 
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
    <Header />
    <main className="py-10">
     <Hero />
+    <Categories />
     
     </main>
     </>

@@ -1,0 +1,125 @@
+.gallery-grid {
+    /* Organiza os itens em uma grade com duas colunas e cinco linhas no layout móvel. */
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(5, auto);
+    /* Define a posição de cada item por meio de áreas nomeadas. */
+    grid-template-areas:
+        "highlight highlight"
+        "sneaker-white sneaker-white"
+        "model sneaker-color"
+        "model sneaker-silver"
+        "sneaker-purple sneaker-purple";
+    /* Espaçamento entre as linhas e colunas da galeria. */
+    gap: 15px;
+}
+
+.gallery-highlight {
+    /* Vincula o bloco destacado à área nomeada "highlight". */
+    grid-area: highlight;
+    /* Permite posicionar a camada sobreposta em relação a este container. */
+    position: relative;
+    /* Define uma altura fixa e impede que o conteúdo ultrapasse o container. */
+    height: 300px;
+    overflow: hidden;
+    /* Arredonda os cantos da imagem em destaque. */
+    border-radius: 20px;
+}
+
+.gallery-highlight-image {
+    /* Faz a imagem ocupar toda a largura e altura do bloco. */
+    width: 100%;
+    height: 100%;
+    /* Corta a imagem quando necessário sem deformar suas proporções. */
+    object-fit: cover;
+    /* Suaviza a animação de escala aplicada ao passar o mouse. */
+    transition: transform 500ms;
+}
+
+.gallery-highlight:hover .gallery-highlight-image {
+    /* Amplia levemente a imagem ao passar o cursor sobre o bloco. */
+    transform: scale(1.05);
+}
+
+.gallery-highlight-overlay {
+    /* Posiciona a sobreposição sobre toda a área da imagem. */
+    position: absolute;
+    inset: 0;
+    /* Organiza o conteúdo da sobreposição em uma coluna centralizada. */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 16px;
+    /* Aplica uma camada preta semitransparente e texto branco. */
+    background-color: rgb(0 0 0 / 20%);
+    color: white;
+    text-align: center;
+    /* Mantém a sobreposição invisível até ocorrer interação. */
+    opacity: 0;
+    /* Suaviza a entrada e saída da sobreposição. */
+    transition: opacity 300ms;
+}
+
+.gallery-highlight:hover .gallery-highlight-overlay,
+.gallery-highlight:focus-within .gallery-highlight-overlay {
+    /* Exibe a sobreposição ao passar o mouse ou navegar por elementos filhos com teclado. */
+    opacity: 1;
+}
+
+.gallery-item {
+    /* Uniformiza largura, altura e formato das imagens comuns da galeria. */
+    width: 100%;
+    height: 300px;
+    border-radius: 20px;
+    /* Ajusta o recorte sem distorcer as proporções das imagens. */
+    object-fit: cover;
+}
+
+.gallery-item-purple {
+    /* Posiciona o tênis roxo na área nomeada correspondente. */
+    grid-area: sneaker-purple;
+}
+
+.gallery-item-model {
+    /* Posiciona o item de modelo e faz ocupar toda a altura da área. */
+    grid-area: model;
+    height: 100%;
+}
+
+.gallery-item-color {
+    /* Posiciona o tênis colorido na área nomeada correspondente. */
+    grid-area: sneaker-color;
+}
+
+.gallery-item-white {
+    /* Posiciona o tênis branco na área nomeada correspondente. */
+    grid-area: sneaker-white;
+}
+
+.gallery-item-silver {
+    /* Posiciona o tênis prata na área nomeada correspondente. */
+    grid-area: sneaker-silver;
+}
+
+@media (min-width: 48rem) {
+    /* Reorganiza a galeria em quatro colunas a partir de telas médias. */
+    .gallery-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-rows: repeat(3, 300px);
+        /* Distribui os blocos em um novo mapa visual para telas maiores. */
+        grid-template-areas:
+            "highlight highlight sneaker-purple sneaker-purple"
+            "highlight highlight model sneaker-color"
+            "sneaker-white sneaker-white model sneaker-silver";
+        /* Aumenta o espaçamento no layout para telas maiores. */
+        gap: 30px;
+    }
+
+    .gallery-highlight,
+    .gallery-item {
+        /* Faz os blocos preencherem integralmente as células da grade. */
+        height: 100%;
+    }
+}

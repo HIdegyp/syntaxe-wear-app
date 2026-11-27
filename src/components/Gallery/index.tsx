@@ -6,6 +6,8 @@ import galeriaTenisColorido from "@/assets/images/galeria-tenis-colorido.jpg";
 import galeriaTenisRoxo from "@/assets/images/galeria-tenis-roxo.jpg";
 import { Button } from "../Button";
 import "./index.css";
+import { Overlay } from "../Overlay";
+
 
 export const Gallery = () => {
   return (
@@ -16,21 +18,12 @@ export const Gallery = () => {
           alt="Modelo masculino sentado usando tenis"
           className="gallery-highlight-image"
         />
-        <div className="gallery-highlight-overlay">
-          <p className="text-sm font-medium tracking-wider">Krypton One</p>
-          <h2 className="text-lg font-medium tracking-wider md:text-xl">
-            Estilo urbano com atitude
-          </h2>
-          <div className="mt-1 flex gap-2.5">
-            <Button variant="secondary" size="sm">
-              Feminino
-            </Button>
-            <Button variant="secondary" size="sm">
-              Masculino
-            </Button>
-          </div>
-        </div>
-      </div>
+     <Overlay title="Krypton One" subtitle="Estilo urbano com atitude" className="inset-0 justify-center items-center">
+      <Button variant="secondary">Masculino</Button>
+      <Button variant="secondary">Feminino</Button>
+      
+     </Overlay>
+     </div>
       <img
         src={galeriaTenisRoxo}
         alt="Tenis roxo"
